@@ -78,7 +78,11 @@ const NoteModal = ({note,isfav}:{note:INote,isfav:boolean}) => {
             </div>
         </DialogHeader>
         <h1 className=' font-bold text-lg'>{note.title}</h1>
-        <p>{note.description?.substring(0,600)} {note.description?.length!>=600 && "....."}</p>
+        <p>
+            {
+                fullscreen?note.description:`${note.description?.substring(0,600)} ${note.description?.length!>=600 && "....."}`
+            }
+        </p>
         <ImageSection images={note.images} noteId={note._id}/>
                 </>
             )
