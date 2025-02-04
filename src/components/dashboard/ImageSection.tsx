@@ -5,7 +5,7 @@ import FileUpload from './FileInput'
 const ImageSection = ({images,noteId}:{images:Imedia[],noteId:string}) => {
 
   return (
-    <div className=' flex flex-wrap gap-3'>
+    <div className=' flex flex-wrap  justify-around gap-3'>
         {
             images.map((image)=>{
                 return <ImageCard key={image._id} url={image.url}/>

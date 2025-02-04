@@ -24,7 +24,7 @@ const OtpForm = ({prevStep,email,password}:{prevStep:()=>void,email:string,passw
             setloading(true);
             await apiRequest("POST","/signup",{email,password,otp});
             toast.success("Account created! Login to you account")
-            navigate("/signin");
+            navigate("/");
         } catch (error) {
             
         }finally{
@@ -50,7 +50,9 @@ const OtpForm = ({prevStep,email,password}:{prevStep:()=>void,email:string,passw
         </InputOTP>
         <div className=" w-full flex items-center justify-between">
             {
-                loading?<Loader></Loader>:(
+                loading?<div className=" w-full flex justify-center items-center">
+                  <Loader></Loader>
+                </div>:(
                     <>
                     <Button onClick={prevStep}>Change Email</Button>
                     <Button onClick={signup}>Create Account</Button>
