@@ -12,7 +12,6 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ setValue,changeType }) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    changeType();
     return () => stopListening(); // Cleanup on unmount
   }, []);
 
@@ -34,7 +33,8 @@ const SpeechToText: React.FC<SpeechToTextProps> = ({ setValue,changeType }) => {
 
     recognition.onstart = () => {
       setIsListening(true);
-      setValue(""); // Clear previous text
+      setValue("");
+      changeType(); // Clear previous text
       timeoutRef.current = setTimeout(() => stopListening(), 60000); // Stop after 1 min
     };
 

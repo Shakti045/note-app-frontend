@@ -31,7 +31,7 @@ const SearchResults = ({searchtext}:{searchtext:string}) => {
     <>
     {
         !loading && notes.length>0 && (
-            <div className="">
+            <div className="  w-full flex flex-wrap gap-4  max-sm:flex-row max-sm:justify-center">
                 {
                     notes.map((note)=>{
                         return <SearchNoteCard note={note}/>

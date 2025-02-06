@@ -14,7 +14,7 @@ import { add_note, INote, update_note } from '@/redux/slices/note'
 const NoteForm =  ({closedialog,editmode,note}:{closedialog:()=>void,editmode?:boolean,note?:INote}) => {
   const [title,setTitle] = useState('');
   const [description,setdescription] = useState('');
-  const [type,setType] = useState("");
+  const [type,setType] = useState("Text");
   const [loading,setLoading] = useState(false);
   const {token} = useSelector((state:RootState)=>state.auth);
   const dispatch = useDispatch();
@@ -86,7 +86,7 @@ const NoteForm =  ({closedialog,editmode,note}:{closedialog:()=>void,editmode?:b
         }}/>
         </div>
         <Textarea id='desc' value={description} onChange={(e)=>{
-          if(type!="Text") setType("Text");
+          // if(type!="Text") setType("Text");
           setdescription(e.target.value)
         }} required rows={10}  placeholder='Enter Description of note'/>
        </div>

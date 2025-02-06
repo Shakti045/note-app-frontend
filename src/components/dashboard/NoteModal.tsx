@@ -80,7 +80,7 @@ const NoteModal = ({note,isfav}:{note:INote,isfav:boolean}) => {
         <h1 className=' font-bold text-lg'>{note.title}</h1>
         <p>
             {
-                fullscreen?note.description:`${note.description?.substring(0,600)} ${note.description?.length!>=600 && "....."}`
+                fullscreen?note.description:`${note.description?.substring(0,600)} ${(note.description?.length!)>=600 ? "......":""}`
             }
         </p>
         <ImageSection images={note.images} noteId={note._id}/>
